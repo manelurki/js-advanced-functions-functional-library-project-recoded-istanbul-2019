@@ -71,5 +71,59 @@ const fi = (function() {
       }
       return compactVersion
     },
+    sortBy: function(array, callback){
+      let arr =[...array]
+      return arr.sort(function(a, b){ return callback(a)-callback(b) })
+    },
+    flatten :function(array,bol){
+     // let result = []
+     // if(bol=== true) {return  [].concat(...array) }
+      //else {return array.prototype.flat(Infinity)}
+      function flatDeep(arr, d = 1) {
+       return d > 0 ? arr.reduce((acc, val) => acc.concat(Array.isArray(val) ? flatDeep(val, d - 1) : val), [])
+                    : arr.slice();
+    }
+    if(bol=== true) return flatDeep(array, 1)
+    else return flatDeep(array, Infinity)
+
+    },
+    uniq : function(array, isSorted, callback){
+      if(!isSorted && callback){
+         let arr =[]
+  let arr1 = []
+
+for (let i=0;i< array.length;i++){
+   if(!arr1.includes(callback(array[i]))) {
+    arr.push(array[i])
+    arr1.push(callback(array[i]))
+}}
+return arr  
+      }
+      else if(isSorted){
+        let res = [] 
+        for (let i = 0 ; i<array.length ; i++){
+          if(array[i] !== array[i+1]) res.push(array[i])
+        }
+        return res 
+      }
+      else
+      {
+          let res =[]
+            for(let element in array)
+            {
+               if(!res.includes(array[element]))
+                {
+                  res.push(array[element])
+                }
+            }
+        return res 
+ 
+      }
+      
+    },
+    keys:function(object){
+     return Object.keys(object)
+      
+    },
     
     

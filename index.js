@@ -124,6 +124,26 @@ return arr
     keys:function(object){
      return Object.keys(object)
       
+    },values: function(obj){
+      const testObj = Object.assign({}, obj)
+      let arr = Object.values(testObj)
+      return arr
     },
+
+    functions: function(obj) {
+      let array = Object.keys(obj)
+      let methods = []
+      for (let index = 0; index < array.length; index++) {
+        if((typeof obj[array[index]]) === "function") methods.push(array[index])
+        
+      }
+      return methods.sort()
+    },
+
+
+  }
+})()
+
+fi.libraryMethod()
     
     

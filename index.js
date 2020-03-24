@@ -64,6 +64,12 @@ const fi = (function() {
         return array.slice(-n)
       }
 
+    },compact: function(array){
+      let compactVersion = []
+      for (let index = 0; index < array.length; index++) {
+        if(array[index]) compactVersion.push(array[index])
+      }
+      return compactVersion
     },
     
     

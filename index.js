@@ -12,7 +12,9 @@ const fi = (function() {
      map: function(arr,func) {
       let array = []
       for (let element in arr){
-        array.push(func(arr[element]))
+        let k=func(arr[element])
+        
+        array.push(k)
       }
       return array
     },

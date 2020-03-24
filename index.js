@@ -18,6 +18,37 @@ const fi = (function() {
       }
       return array
     },
-  }
+  
+    reduce: function(array,func,acc) {
+        for(let element in array){
+          if(acc===undefined)
+          {acc=array[element]}
+          else{
+            acc=func(acc,array[element],array)}
+        }
+        return acc
+    },
+    find : function(array, predicate){
+        for( let ele of array )
+        {
+        if(predicate(ele )) return ele  
+        }
+        return undefined 
+    },
+    filter : function(array, predicate){
+      let arr = []
+      for (let element of array){
+        if(predicate(element)) arr.push(element)
+      }
+      return arr 
+    },
+    size:function(collection){
+      let ind = 0 
+      for(let element in collection){
+          ind += 1
+      }
+      return ind
+    },
+    
     
     

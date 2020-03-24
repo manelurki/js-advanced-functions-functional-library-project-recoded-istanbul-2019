@@ -18,3 +18,6 @@ const fi = (function() {
       }
       return array
     },
+    
+    
+    

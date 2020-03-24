@@ -49,6 +49,21 @@ const fi = (function() {
       }
       return ind
     },
-    
+     first: function(array,n){
+      if (n === undefined){
+        return array[0]
+      }else{
+        return array.slice(0,n)
+      }
+    },
+
+    last: function(array,n){
+      if (n === undefined){
+        return array[array.length-1]
+      }else{
+        return array.slice(-n)
+      }
+
+    },
     
     

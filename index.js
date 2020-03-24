@@ -9,3 +9,10 @@ const fi = (function() {
         }
       return arr  
     },
+     map: function(arr,func) {
+      let array = []
+      for (let element in arr){
+        array.push(func(arr[element]))
+      }
+      return array
+    },
